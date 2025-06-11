@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock App Flask</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 30px;
+        }
+        h1 {
+            color: #007BFF;
+            text-align: center;
+        }
+        form {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            margin: auto;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            margin-top: 20px;
+            background: #e7f3fe;
+            color: #31708f;
+            padding: 15px;
+            border-left: 4px solid #007BFF;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stock Data App - Flask Interface</h1>
+
+    <form method="POST">
+        <label for="tickers">Nhập ticker (phân cách bởi dấu phẩy):</label><br>
+        <input type="text" id="tickers" name="tickers" placeholder="VD: AAPL, GOOGL, MSFT" required><br>
+
+        <button type="submit" name="action" value="etl">1️⃣ Tải dữ liệu (ETL)</button>
+        <button type="submit" name="action" value="mysql">2️⃣ Lưu vào MySQL</button>
+        <button type="submit" name="action" value="spark">3️⃣ Đẩy lên Spark</button>
+        <button type="submit" name="action" value="analyze">4️⃣ Phân tích dữ liệu</button>
+        <button type="submit" name="action" value="plot">5️⃣ Vẽ biểu đồ</button>
+        <button type="submit" name="action" value="train">6️⃣ Train & Dự đoán (LSTM)</button>
+        <button type="submit" name="action" value="evaluate">7️⃣ Đánh giá và Dự đoán</button>
+    </form>
+
+    {% if message %}
+    <div class="message">{{ message|safe }}</div>
+    {% endif %}
+</body>
+</html>
